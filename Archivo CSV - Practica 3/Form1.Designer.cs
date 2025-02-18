@@ -45,8 +45,8 @@
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 89.20188F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.7981224F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 90.14085F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.859155F));
             tableLayoutPanel1.Size = new Size(776, 426);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -61,7 +61,7 @@
             // butAbrir
             // 
             butAbrir.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            butAbrir.Location = new Point(3, 391);
+            butAbrir.Location = new Point(3, 393);
             butAbrir.Name = "butAbrir";
             butAbrir.Size = new Size(770, 23);
             butAbrir.TabIndex = 1;

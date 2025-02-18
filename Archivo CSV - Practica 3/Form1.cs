@@ -40,28 +40,35 @@ namespace Archivo_CSV___Practica_3
 
 
             //Codigo final
-
-            DialogResult res = openFileDialogAbrir.ShowDialog();
-
-            if (res == DialogResult.OK)
+            try
             {
-                string text = File.ReadAllText(openFileDialogAbrir.FileName);
-                string[] ren = text.Split('\n');
-                string[] col = ren[0].Split(',');
 
-                dataGridViewAbrir.RowCount = ren.Length;
-                dataGridViewAbrir.ColumnCount = col.Length;
+                DialogResult res = openFileDialogAbrir.ShowDialog();
 
-                for(int i = 0; i < ren.Length-1; i++)
+                if (res == DialogResult.OK)
                 {
-                    string[] linea = ren[i].Split(',');
+                    string text = File.ReadAllText(openFileDialogAbrir.FileName);
+                    string[] ren = text.Split('\n');
+                    string[] col = ren[0].Split(',');
 
-                    for(int j = 0; j < col.Length; j++)
+                    dataGridViewAbrir.RowCount = ren.Length;
+                    dataGridViewAbrir.ColumnCount = col.Length;
+
+                    for (int i = 0; i < ren.Length - 1; i++)
                     {
-                        string dato = linea[j];
-                        dataGridViewAbrir.Rows[i].Cells[j].Value = dato;
+                        string[] linea = ren[i].Split(',');
+
+                        for (int j = 0; j < col.Length; j++)
+                        {
+                            string dato = linea[j];
+                            dataGridViewAbrir.Rows[i].Cells[j].Value = dato;
+                        }
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al abrir el archivo" + ex);
             }
         }
     }
