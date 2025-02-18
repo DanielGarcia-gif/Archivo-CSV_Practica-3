@@ -9,7 +9,7 @@ namespace Archivo_CSV___Practica_3
 
         private void butAbrir_Click(object sender, EventArgs e)
         {
-            //Codigo de Prueba
+            //Codigo de Prueba 
 
             //DialogResult res = openFileDialogAbrir.ShowDialog();
 
