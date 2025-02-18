@@ -39,7 +39,7 @@ namespace Archivo_CSV___Practica_3
 
 
 
-            //Codigo finalios 
+            //Codigo final
 
             DialogResult res = openFileDialogAbrir.ShowDialog();
 
