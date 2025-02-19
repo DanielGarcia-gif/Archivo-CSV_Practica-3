@@ -131,69 +131,89 @@ namespace Archivo_CSV___Practica_3
         {
             try
             {
-                int añoN = int.Parse(txtCURP.Text.Substring(4, 2));
-                int mesN = int.Parse(txtCURP.Text.Substring(6, 2));
-                int diaN = int.Parse(txtCURP.Text.Substring(8, 2));
+                txtCURP.Text = txtCURP.Text.ToUpper();
+                string CURP = txtCURP.Text;
 
-                string sexo;
-                string estado = "";
-
-
-                //Estado de Nacimiento
-                int cont = 0;
-                while (txtCURP.Text.Substring(11, 2).CompareTo(estadosMexico[cont]) != 0)
-                    cont++;
-                estado = nombresEstados[cont];
-
-
-                //Sexo
-                if (txtCURP.Text.Substring(10, 1).CompareTo("H") == 0)
-                    sexo = "Hombre";
-                else if (txtCURP.Text.Substring(10, 1).CompareTo("M") == 0)
-                    sexo = "Mujer";
-                else
-                    sexo = "";
-
-
-                //Edad
-                if (añoN >= 0 && añoN <= 24)
-                    añoN = añoN + 2000;
-                else
-                    añoN = añoN + 1900;
-
-                DateTime fecha = new DateTime(añoN, mesN, diaN);
-                DateTime fechaActual = DateTime.Today;
-
-                int edad = fechaActual.Year - fecha.Year;
-
-                if (fechaActual < fecha.AddYears(edad))
-                    edad--;
-
-
-                //Sexo valido
-                if(sexo.CompareTo("") == 0)
+                if (CURP.Length == 18)
                 {
-                    MessageBox.Show("Error en los datos \nFavor de verificar sus datos",
-                               "ERROR",
-                               MessageBoxButtons.OK,
-                               MessageBoxIcon.Error);
+                    int añoN = int.Parse(txtCURP.Text.Substring(4, 2));
+                    int mesN = int.Parse(txtCURP.Text.Substring(6, 2));
+                    int diaN = int.Parse(txtCURP.Text.Substring(8, 2));
+
+                    string sexo;
+                    string estado = "";
+
+
+                    //Estado de Nacimiento
+                    int cont = 0;
+                    while (txtCURP.Text.Substring(11, 2).CompareTo(estadosMexico[cont]) != 0)
+                        cont++;
+                    estado = nombresEstados[cont];
+
+
+                    //Sexo
+                    if (txtCURP.Text.Substring(10, 1).CompareTo("H") == 0)
+                        sexo = "Hombre";
+                    else if (txtCURP.Text.Substring(10, 1).CompareTo("M") == 0)
+                        sexo = "Mujer";
+                    else
+                        sexo = "";
+
+
+                    //Edad
+                    if (añoN >= 0 && añoN <= 24)
+                        añoN = añoN + 2000;
+                    else
+                        añoN = añoN + 1900;
+
+                    DateTime fecha = new DateTime(añoN, mesN, diaN);
+                    DateTime fechaActual = DateTime.Today;
+
+                    int edad = fechaActual.Year - fecha.Year;
+
+                    if (fechaActual < fecha.AddYears(edad))
+                        edad--;
+
+
+                    //Sexo valido
+                    if (sexo.CompareTo("") == 0)
+                    {
+                        MessageBox.Show("Error en los datos \nFavor de verificar sus datos",
+                                   "ERROR",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+                    }
+                    else
+                        MessageBox.Show("Estado de Nacimiento: " + estado + "\nSexo: " + sexo + "\nEdad: " + edad + " años",
+                                        "Resultado",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("Estado de Nacimiento: " + estado + "\nSexo: " + sexo + "\nEdad: " + edad + " años",
-                                    "Resultado",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
+                {
+                    MessageBox.Show("Los datos ingresados son incorrectos, favor de verificar \n la estencion de la CURP" ,
+                                        "ERROR",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                }
             }
-            catch(IndexOutOfRangeException ex)
+            catch (IndexOutOfRangeException ex)
             {
                 MessageBox.Show("Error en los datos \nFavor de verificar sus datos",
                                 "ERROR",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
-            catch(FormatException ex)
+            catch (FormatException ex)
             {
                 MessageBox.Show("Error en los datos \nFavor de verificar sus datos",
+                                "ERROR",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+            catch(ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Error en los datos \nFavor de verificar sus datos \n(Fecha)",
                                 "ERROR",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
