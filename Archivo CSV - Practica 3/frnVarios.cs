@@ -191,7 +191,7 @@ namespace Archivo_CSV___Practica_3
                 }
                 else
                 {
-                    MessageBox.Show("Los datos ingresados son incorrectos, favor de verificar \n la estencion de la CURP" ,
+                    MessageBox.Show("Los datos ingresados son incorrectos, favor de verificar \n la extencion de la CURP" ,
                                         "ERROR",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Error);
