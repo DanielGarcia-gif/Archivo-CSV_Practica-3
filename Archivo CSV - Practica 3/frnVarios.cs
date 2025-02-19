@@ -157,9 +157,9 @@ namespace Archivo_CSV___Practica_3
 
                 //Edad
                 if (añoN >= 0 && añoN <= 24)
-                    añoN += 2000;
+                    añoN = añoN + 2000;
                 else
-                    añoN += 1900;
+                    añoN = añoN + 1900;
 
                 DateTime fecha = new DateTime(añoN, mesN, diaN);
                 DateTime fechaActual = DateTime.Today;
