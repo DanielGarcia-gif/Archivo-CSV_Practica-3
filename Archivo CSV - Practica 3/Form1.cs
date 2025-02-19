@@ -66,10 +66,16 @@ namespace Archivo_CSV___Practica_3
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al abrir el archivo" + ex);
             }
+        }
+
+        private void fechasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frnVarios varios = new frnVarios();
+            varios.Show();
         }
     }
 }
