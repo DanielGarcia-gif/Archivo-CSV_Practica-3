@@ -105,13 +105,13 @@ namespace Archivo_CSV___Practica_3
             {
                 meses--;
                 DateTime mesAnterior = calculo.AddMonths(-1);
-                dias += DateTime.DaysInMonth(mesAnterior.Year, mesAnterior.Month);
+                dias = dias + DateTime.DaysInMonth(mesAnterior.Year, mesAnterior.Month);
             }
 
             if (meses < 0)
             {
                 edad--;
-                meses += 12;
+                meses = meses + 12;
             }
 
             MessageBox.Show("Años: " + edad + "\nMeses: " + meses + "\nDias: " + dias,
